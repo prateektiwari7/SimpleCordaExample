@@ -18,13 +18,18 @@ import java.util.*
 // *********
 // * Flows *
 // *********
+
 @InitiatingFlow
 @StartableByRPC
-class  NameFlow(val name:String,
-                val lastname : String, val party:Party): FlowLogic<SignedTransaction>() {
+class NameFlow constructor( var name:String,
+                var lastname : String, var party:Party): FlowLogic<SignedTransaction>() {
+
+
+
 
     @Suspendable
     override fun call() : SignedTransaction {
+
         val notary = serviceHub.networkMapCache.notaryIdentities.first()
         val command = Command(NameContract.Commands.Create(), listOf(party).map { it.owningKey })
         val namestate = NameState(name,lastname,party, UniqueIdentifier())

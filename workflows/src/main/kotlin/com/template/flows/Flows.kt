@@ -9,8 +9,10 @@ import net.corda.core.utilities.ProgressTracker
 // *********
 @InitiatingFlow
 @StartableByRPC
-class Initiator : FlowLogic<Unit>() {
+class Initiator(val prateek: String) : FlowLogic<Unit>() {
     override val progressTracker = ProgressTracker()
+
+
 
     @Suspendable
     override fun call() {

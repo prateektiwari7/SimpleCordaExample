@@ -19,4 +19,4 @@ fun main(args: Array<String>) {
     app.setBannerMode(Banner.Mode.OFF)
     app.webApplicationType = SERVLET
     app.run(*args)
-}
+    }
