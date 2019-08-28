@@ -18,10 +18,10 @@ private class Client {
 
     fun main(args: Array<String>) {
         // Create an RPC connection to the node.
-        require(args.size == 3) { "Usage: Client <node address> <rpc username> <rpc password>" }
-        val nodeAddress = parse(args[0])
-        val rpcUsername = args[1]
-        val rpcPassword = args[2]
+       // require(args.size == 3) { "Usage: Client <node address> <rpc username> <rpc password>" }
+        val nodeAddress = parse("localhost:10009")
+        val rpcUsername = "user1"
+        val rpcPassword = "test"
         val client = CordaRPCClient(nodeAddress)
         val proxy = client.start(rpcUsername, rpcPassword).proxy
 
