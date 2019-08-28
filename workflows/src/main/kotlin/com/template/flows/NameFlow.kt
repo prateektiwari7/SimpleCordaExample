@@ -24,9 +24,6 @@ import java.util.*
 class NameFlow constructor( var name:String,
                 var lastname : String, var party:Party): FlowLogic<SignedTransaction>() {
 
-
-
-
     @Suspendable
     override fun call() : SignedTransaction {
 

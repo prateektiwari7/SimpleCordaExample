@@ -77,7 +77,73 @@ You can find out more about the node shell [here](https://docs.corda.net/shell.h
  Check the flow name as NameFlow 
     
        Wed Aug 28 10:59:34 IST 2019>>> flow start NameFlow name: kumar, lastname: Tiwari, party: partyA     
-            
+
+ To Check the states of each node use this command
+ 
+        Wed Aug 28 18:50:02 IST 2019>>> run vaultQuery contractStateType: com.template.states.NameState
+        
+
+### API EndPoints (Checked in postman)
+
+1.Get Method to display all peers in network: http://localhost:8080/name/api/peers
+
+        {
+            "peers": [
+                {
+                    "commonName": null,
+                    "organisationUnit": null,
+                    "organisation": "PartyA",
+                    "locality": "London",
+                    "state": null,
+                    "country": "GB",
+                    "x500Principal": {
+                        "name": "O=PartyA,L=London,C=GB",
+                        "encoded": "MC8xCzAJBgNVBAYTAkdCMQ8wDQYDVQQHDAZMb25kb24xDzANBgNVBAoMBlBhcnR5QQ=="
+                    }
+                },
+                {
+                    "commonName": null,
+                    "organisationUnit": null,
+                    "organisation": "PartyC",
+                    "locality": "Paris",
+                    "state": null,
+                    "country": "FR",
+                    "x500Principal": {
+                        "name": "O=PartyC,L=Paris,C=FR",
+                        "encoded": "MC4xCzAJBgNVBAYTAkZSMQ4wDAYDVQQHDAVQYXJpczEPMA0GA1UECgwGUGFydHlD"
+                    }
+                }
+            ]
+        }
+
+2.Get Method to show your node details : http://localhost:8080/name/api/peer
+
+        {
+            "peer": {
+                "commonName": null,
+                "organisationUnit": null,
+                "organisation": "PartyB",
+                "locality": "New York",
+                "state": null,
+                "country": "US",
+                "x500Principal": {
+                    "name": "O=PartyB,L=New York,C=US",
+                    "encoded": "MDExCzAJBgNVBAYTAlVTMREwDwYDVQQHDAhOZXcgWW9yazEPMA0GA1UECgwGUGFydHlC"
+                }
+            }
+        }
+ 
+ 3.Post method to deploy the node details :http://localhost:8080/name/api/post-name
+ 
+        name : Prateek7
+        lastname : Tiwari
+        partyName: O=PartyA,L=London,C=GB
+        
+        Output:- 
+        Transaction id E2D8B49F69C47A1235FBE50330AB808B0F246177FDF8095CC585C6B4DC80803C committed to ledger.   
+
+
+                 
 ### Client
 
 `clients/src/main/kotlin/com/template/Client.kt` defines a simple command-line client that connects to a node via RPC 
