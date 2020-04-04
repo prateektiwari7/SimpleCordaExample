@@ -1,7 +1,7 @@
 package com.template.states
 
 import com.template.contracts.NameContract
-import com.template.schema.NameSchema1
+//import com.template.schema.NameSchema1
 import net.corda.core.contracts.BelongsToContract
 import net.corda.core.contracts.ContractState
 import net.corda.core.contracts.LinearState
